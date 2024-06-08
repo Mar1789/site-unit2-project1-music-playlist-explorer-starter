@@ -11,47 +11,25 @@
 </head>
 <body>
     <header>
-        <h2>Music Playlist Explorer</h1>
+        <img class="music" src="./assets/img/music.png">
+        <h2>Music Playlist Explorer</h2>
+        <button class="feature" type="button">Featured Playlist</button>
+        <button class="musicPlaylist" type="button">Music Playlist</button>
     </header>
     <main> 
     <div class="grid-container">
-        <!-- <div class="playlist-cards">
-            <img class="img" src="./assets/img/playlist.png">
-            <h3>Playlist Title</h3>
-            <p>Creator Name</p>
-            <div class="like-div">
-            <img class="like" src="./heart1.png">
-            <p>25</p>
-            </div>
-        </div> -->
     </div>
-    <div class="modal">
+    <div id="modal">
         <div class="modal-content">
-            <div class>
+            <span class="close">&times;</span>
+            <button class="button" type="button">Shuffle</button>
+            <div class="playlist-cover">
                 <img class="img" src="./assets/img/playlist.png">
                 <h3 class="modal-title">Playlist Title</h3>
                 <h3 class="creator-name">Creator Name</h3>
             </div>
                 <div class="container">
-                    <img src="./assets/img/playlist.png">
-                    <h3 class="song-title">Song Title</h3>
-                    <h3 class="artist-name">Artist Name</h3>
-                    <h3 class="album-name">Album Name</h3>
                 </div>
-                <!-- <div class="container">
-                    <img src="./assets/img/playlist.png">
-                    <h3 class="song-title">Song Title</h3>
-                    <h3 class="artist-name">Artist Name</h3>
-                    <h3 class="album-name">Album Name</h3>
-                </div>
-                <div class="container">
-                    <img src="./assets/img/playlist.png">
-                    <h3 class="song-title">Song Title</h3>
-                    <h3 class="artist-name">Artist Name</h3>
-                    <h3 class="album-name">Album Name</h3>
-                </div> -->
-
-           <span class="close">&times;</span>
            <div id="artistLineup"></div>
         </div>
      </div>

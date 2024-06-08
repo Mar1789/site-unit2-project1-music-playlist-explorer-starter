@@ -62,11 +62,7 @@ let addSongs = (arr) => {
     })
 }
 let editModal = (e) => {
-    if(e.target.className === "playlist-cards"){
-        parentNode = e.target;
-    } else {
-        parentNode = e.target.parentNode;
-    }
+    parentNode = e.target.parentNode;
 
     children = parentNode.querySelectorAll("p, img.playlist, h3");
 
@@ -93,7 +89,7 @@ let shuffleModal = (e) => { // refreshes whole modal when shuffle
     clearModal();
         editModal(e);
         data.playlists.forEach(playlist => {  // Access songs from JSON
-            if (playlist.playlist_name === playlistTitle.innerHTML.replace(/&amp;/g, '&')) {
+            if (playlist.playlist_name === playlistTitle.innerHTML) {
               array = playlist.songs;
             }
         });
@@ -140,16 +136,15 @@ let cardtemplate = (playlist) => {
     card.onclick = function(e){
         let arr = [];
         clearModal();
-        if(e.target.className === "like" || e.target.className === "likediv" || e.target.className === "likeNumber"){
+        if(e.target.className === "like"){
             modal.style.display = "none";
             return;
         } else {
             modal.style.display = "block";
         }
         editModal(e);
-        console.log(playlistTitle.innerHTML)
         data.playlists.forEach(playlist => {  // Access songs from JSON
-            if (playlist.playlist_name === playlistTitle.innerHTML.replace(/&amp;/g, '&')) {
+            if (playlist.playlist_name === playlistTitle.innerHTML) {
               arr = playlist.songs;
               button.onclick = function() { // Event listener when the shuffle button is clicked
                 console.log("Clicked!");
@@ -174,9 +169,9 @@ let playlist = () => {
         
     );
 }
-span.onclick = function() {
-    modal.style.display = "none";
- }
+if(span !== 'null'){
+    
+}
 if(window.location.href === "./featured.html"){
     span.onclick = function() {
         modal.style.display = "none";
@@ -188,12 +183,6 @@ if(document.querySelector('.feature') !== 'null'){
     button = document.querySelector('.feature');
     button.onclick = function(event) {
         window.location.href = './featured.html';
-    }
-}
-if(document.querySelector('.musicPlaylist') !== 'null'){
-    button = document.querySelector('.musicPlaylist');
-    button.onclick = function(event) {
-        window.location.href = './index.html';
     }
 }
 window.onclick = function(event) {

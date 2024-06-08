@@ -1,5 +1,3 @@
-var modal = document.getElementById("modal");
-var span = document.getElementsByClassName("close")[0];
 let arr = [];
 let $modalPlaylist = false;
 
@@ -51,6 +49,7 @@ let addSongs = (arr) => {
         albumName.innerHTML = song.album;
 
         time = document.createElement('p');
+        time.className = "containerp"
         time.innerHTML = song.duration;
 
         songContainer.appendChild(songImage);
@@ -62,20 +61,16 @@ let addSongs = (arr) => {
     })
 }
 let editModal = (e) => {
-    if(e.target.className === "playlist-cards"){
-        parentNode = e.target;
-    } else {
-        parentNode = e.target.parentNode;
-    }
+    parentNode = e.target.parentNode;
 
     children = parentNode.querySelectorAll("p, img.playlist, h3");
 
     playlistTitle = document.querySelector(".modal-title");
     playlistTitle.innerHTML = children[1].innerHTML;
 
-    modalImage = document.querySelector(".img"); // Reassigning Image
+    modalImage = document.getElementById("20"); // Reassigning Image
     modalImage.src = children[0].src;
-
+    console.log(document.getElementById("20"));
     creator = document.querySelector(".creator-name");
     creator.innerHTML = children[2].innerHTML;
 }
@@ -93,90 +88,29 @@ let shuffleModal = (e) => { // refreshes whole modal when shuffle
     clearModal();
         editModal(e);
         data.playlists.forEach(playlist => {  // Access songs from JSON
-            if (playlist.playlist_name === playlistTitle.innerHTML.replace(/&amp;/g, '&')) {
+            if (playlist.playlist_name === playlistTitle.innerHTML) {
               array = playlist.songs;
             }
         });
         addSongs(array);
 }
-
-let cardtemplate = (playlist) => {
-    let parent = document.querySelector(".grid-container");   
-
-    card = document.createElement('div');
-    card.className = ("playlist-cards");
-
-    image = document.createElement('img');
-    image.className = "playlist"
-    image.src = playlist.playlist_art;
-
-    title = document.createElement('h3');
-    title.innerHTML = playlist.playlist_name;
-
-    creatorName = document.createElement('p');
-    creatorName.className = "creatorName"
-    creatorName.innerHTML = playlist.playlist_creator;
-
-    like = document.createElement('div');
-    like.className = "likediv";
-
-    likeNumber = document.createElement('p');
-    likeNumber.className = "likeNumber";
-    likeNumber.innerHTML = playlist.likeCount;
-    likeimage = document.createElement('img');
-    likeimage.className = "like"
-    likeimage.src = './heart1.png';
-    likeimage.onclick = function(e) {changeImage(e.target, parseInt(likeNumber.innerHTML)), playlist};
-
-    likeNumber.innerHTML = playlist.likeCount;
-
-    card.appendChild(image);
-    card.appendChild(title);
-    card.appendChild(creatorName);
-    card.appendChild(like);
-
-    button = document.querySelector(".button");
-
-    card.onclick = function(e){
-        let arr = [];
-        clearModal();
-        if(e.target.className === "like" || e.target.className === "likediv" || e.target.className === "likeNumber"){
-            modal.style.display = "none";
-            return;
-        } else {
-            modal.style.display = "block";
-        }
-        editModal(e);
-        console.log(playlistTitle.innerHTML)
-        data.playlists.forEach(playlist => {  // Access songs from JSON
-            if (playlist.playlist_name === playlistTitle.innerHTML.replace(/&amp;/g, '&')) {
-              arr = playlist.songs;
-              button.onclick = function() { // Event listener when the shuffle button is clicked
-                console.log("Clicked!");
-                playlist.songs = shuffleArray(playlist.songs);
-                console.log(playlist.songs);
-                shuffleModal(e);
-                } 
-            }
-        });
-        addSongs(arr);
-    };
-    like.appendChild(likeimage);
-    like.appendChild(likeNumber);
-
-    parent.appendChild(card);
-}
-
 let playlist = () => {
-    data.playlists.forEach(playlist => 
-        cardtemplate(playlist),
+    shuffleArray(data.playlists);
+    playlistCover = document.querySelector(".imagecover");
+    playlistCover.src = data.playlists[0].playlist_art;
 
-        
-    );
+    playlistTitle = document.querySelector("h3");
+    playlistTitle.innerHTML = data.playlists[0].playlist_name;
+
+    playlistArtist = document.getElementById("artistid");
+    playlistArtist.innerHTML = data.playlists[0].playlist_creator;
+    clearModal();
+    addSongs(data.playlists[0].songs);
+
 }
-span.onclick = function() {
-    modal.style.display = "none";
- }
+if(span !== 'null'){
+    
+}
 if(window.location.href === "./featured.html"){
     span.onclick = function() {
         modal.style.display = "none";
@@ -184,7 +118,6 @@ if(window.location.href === "./featured.html"){
     }
 }
 if(document.querySelector('.feature') !== 'null'){
-    console.log("TESTING");
     button = document.querySelector('.feature');
     button.onclick = function(event) {
         window.location.href = './featured.html';
@@ -196,10 +129,6 @@ if(document.querySelector('.musicPlaylist') !== 'null'){
         window.location.href = './index.html';
     }
 }
-window.onclick = function(event) {
-    if(event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+
 var span = document.getElementsByClassName("close");
-playlist(); 
+playlist();

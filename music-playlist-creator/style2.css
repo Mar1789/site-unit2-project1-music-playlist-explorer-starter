@@ -1,0 +1,205 @@
+header{
+    margin-bottom: 21px;
+    background-color: grey;
+    color: white;
+    padding: 2%;
+    margin-top: 0px;
+    border: 5px;
+    text-align: center;
+    height: 63px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #BBF4F6;
+    min-height: 100vh;
+    justify-content: center;
+}
+p {
+    position: relative;
+    line-height: 6px;
+    right: -1000px;
+}
+
+main{
+    max-height: 666px;
+}
+
+.h3 {
+    text-shadow: 1px 0.5px;
+    font-size: px;
+    position: relative;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    right: -535px;
+    top: -260px;
+    width: 200px;
+}
+.artist{
+    text-shadow: 1px 0.5px;
+    font-size: px;
+    position: relative;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    right: -535px;
+    top: -260px;
+}
+.likeNumber{
+    position: relative;
+    right: -35px;
+    top: -39px;
+}
+footer{
+    background-color: #eeeeee;
+    margin-top: 48px;
+    width: 100%;
+    height: 20px;
+    bottom: 50%;
+}
+.imagecover{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    right: -11px;
+    bottom: -108px;
+    }
+.playlist-cards{
+    width: 200px;
+    max-height: 352px;
+    background-color: grey;
+    position: relative;
+    margin-right: auto;
+    height: 40vh;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: 1px solid white;
+    flex-basis: content;
+    border-radius: 5.7px;
+    text-shadow: 1px 0.5px;
+    transition: 0.3s;
+}
+
+.playlist-cards:hover {
+    background-color: silver;
+}
+.playlist-cover{
+    max-height: 225px;
+}
+.grid-container {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 9fr));
+    grid-gap: auto;    
+}
+    .button{
+        position: relative;
+        right: -587px;
+        bottom: -185px;
+    }
+    .creator-name{
+        position: relative;
+        font-size: 30px;
+        top: -228px;
+        right: -244px;
+    }
+    .container{
+        grid-auto-flow: row;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        top: -494px;
+        display: grid;
+        border-radius: 5.7px;
+        grid-gap: 50px;    
+        height: 492px;
+    }
+    .containerp{
+        position: relative;
+        top: -224px;
+        right: -666px;
+        width: 100%;
+    }
+    .song-container{
+        width: 47.5%;
+        height: 170px;
+        display: inline-block;
+        background-color: grey;
+        border: 1px solid black;
+        white-space: nowrap;
+        position: relative;
+        right: -770px;
+    }
+    .song-image {
+        position: relative;
+        width: 170px; 
+    }
+
+    .song-title{
+        position: relative;
+        top: -159px;
+        right: -196px;
+    }   
+    .artist-name{
+        position: relative;
+        top: -159px;
+        right: -196px;
+    }
+    .album-name{
+        position: relative;
+        top: -159px;
+        right: -196px;
+
+    }
+
+    .close {
+        top: -862px;
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .feature:hover {
+        transform: translateY(-10px);
+        background-color: #CEF3F5;
+    }
+    .feature{
+        transition: transform 250ms;
+        top: -57px;
+        right: -507px;
+        padding:15px;
+        background-color: #7ADADD;
+        position: relative;
+        border-radius: 5%;
+        border-color: #7ADADD;
+    }
+    .musicPlaylist {
+        transition: transform 250ms;
+        top: -57px;
+        right: -580px;
+        padding:15px;
+        background-color: #7ADADD;
+        position: relative;
+        border-radius: 5%;
+        border-color: #7ADADD;
+    }
+    .musicPlaylist:hover {
+        transform: translateY(-10px);
+        background-color: #CEF3F5;
+    }
+    .music{
+        width: 120px;
+        position: absolute;
+        left: 404px;
+        top: -4px;
+    }
